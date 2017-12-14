@@ -3,7 +3,7 @@ import React from 'react';
 
 import MuiInput from './MuiInput';
 
-import { _get_property } from './../lib/functions';
+import { _get_property } from './lib/functions';
 
 /*
 	export: toggle

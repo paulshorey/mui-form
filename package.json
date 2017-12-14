@@ -1,6 +1,6 @@
 {
     "name": "mui-form",
-    "version": "1.1.4",
+    "version": "1.1.5",
     "description": "A very nice form library with 1) Material UI 2) validation 3) state management, like to show submit/reset/loading buttons automatically",
     "directories": {
         "example": "example",
