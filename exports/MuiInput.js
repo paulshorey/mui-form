@@ -10,10 +10,7 @@ class MuiInput extends React.Component {
 
 	constructor(props) {
 		super(props);
-	}
-
-	componentWillReceiveProps() {
-		var { stateScope, validations, name, onChange } = this.props;
+		var { stateScope, validations, onChange } = this.props;
 
 		// this
 		this.state = {
@@ -230,6 +227,10 @@ class MuiInput extends React.Component {
 				// this.setState({invalid: errorMessage || false });
 			}
 		};
+	}
+
+	componentWillReceiveProps() {
+		var { stateScope, validations, name } = this.props;
 
 		// add this to parent form
 		if (validations) {

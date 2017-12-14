@@ -10,11 +10,6 @@ import { _get_property } from '../lib/functions';
 	inherited from MuiInput
 */
 class MuiToggle extends MuiInput {
-
-	constructor(props) {
-		super(props);
-	}
-	
 	render() {
 		// must decalare: onChange,onBlur,validations,value,options,checked to prevent them from going into {...input}
 		var {
