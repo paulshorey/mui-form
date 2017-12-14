@@ -10,7 +10,10 @@ class MuiInput extends React.Component {
 
 	constructor(props) {
 		super(props);
-		var { stateScope, validations, onChange } = this.props;
+	}
+
+	componentWillReceiveProps() {
+		var { stateScope, validations, name, onChange } = this.props;
 
 		// this
 		this.state = {
@@ -18,9 +21,6 @@ class MuiInput extends React.Component {
 			touched: false,
 			changed: false,
 		};
-	}
-
-	componentWillReceiveProps() {
 
 		/*
 			initially, validate - but update form validity only, dont mess with this input until touched by session
@@ -230,8 +230,6 @@ class MuiInput extends React.Component {
 				// this.setState({invalid: errorMessage || false });
 			}
 		};
-
-		var { stateScope, validations, name } = this.props;
 
 		// add this to parent form
 		if (validations) {
