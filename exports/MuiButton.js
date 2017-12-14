@@ -10,7 +10,7 @@ import * as Styled from './MuiButtonStyled';
 */
 class MuiButton extends React.Component {
 	render() {
-		var { children, ...attributes } = this.props;
+		const { children, ...attributes } = this.props;
 		return <Styled.Button {...attributes}>{children}</Styled.Button>;
 	}
 }
