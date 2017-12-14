@@ -1,0 +1,28 @@
+{
+  "name": "mui-form",
+  "version": "1.0.0",
+  "description": "",
+  "main": "exports.js",
+  "directories": {
+    "example": "example",
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulshorey/mui-form.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paulshorey/mui-form/issues"
+  },
+  "homepage": "https://github.com/paulshorey/mui-form#readme",
+  "dependencies": {
+    "react": "^16.0.0",
+    "styled-components": "^2.1.2"
+  }
+}
