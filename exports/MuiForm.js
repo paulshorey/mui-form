@@ -20,6 +20,35 @@ class MuiForm extends React.Component {
 	*/
 	constructor(props) {
 		super(props);
+	};
+
+	/*
+		MuiForm private methods
+	*/
+	userScrolledY(form) {
+		/* 
+			on scroll, called from lifecycle methods
+		*/
+		if (form) {
+			// container form is target
+			if (form.target) {
+				// so we can pass to this the form or the parent object of the form
+				form = form.target;
+			}
+			// to show tip only when at the top...
+			// adjust (form.offsetHeight + N) as the tolerance - don't show custom scrollbar and arrow when almost at the end of form - session can figure that out themselves
+			if (form.scrollTop + form.offsetHeight + 30 > form.scrollHeight) {
+				form.classList.remove('scrollDown');
+			} else {
+				form.classList.add('scrollDown');
+			}
+		}
+	};
+
+	/*
+		Start Lifecycle
+	*/
+	componentWillReceiveProps() {
 
 		/*
 			stateScope
@@ -123,29 +152,6 @@ class MuiForm extends React.Component {
 		};
 		stateScope.muiFormReset();
 	}
-
-	/*
-		MuiForm private methods
-	*/
-	userScrolledY(form) {
-		/* 
-			on scroll, called from lifecycle methods
-		*/
-		if (form) {
-			// container form is target
-			if (form.target) {
-				// so we can pass to this the form or the parent object of the form
-				form = form.target;
-			}
-			// to show tip only when at the top...
-			// adjust (form.offsetHeight + N) as the tolerance - don't show custom scrollbar and arrow when almost at the end of form - session can figure that out themselves
-			if (form.scrollTop + form.offsetHeight + 30 > form.scrollHeight) {
-				form.classList.remove('scrollDown');
-			} else {
-				form.classList.add('scrollDown');
-			}
-		}
-	};
 
 	/*
 		MuiForm lifecycle methods
