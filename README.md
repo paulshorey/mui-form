@@ -1,1 +1,3 @@
-info coming soon ... for now, feel free to look at the ./src code
+### Documentation coming soon  
+...  
+For now, feel free to look at the [./src](https://github.com/paulshorey/mui-form/tree/master/src) code  

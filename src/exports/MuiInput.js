@@ -1,7 +1,7 @@
 /*eslint no-unused-vars: 2*/
 import React from 'react';
 
-import { _get_property, _set_property } from '../lib/functions';
+import { _get_property, _set_property } from './../lib/functions';
 
 /*
 	export: input
