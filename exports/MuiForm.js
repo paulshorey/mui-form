@@ -127,7 +127,7 @@ class MuiForm extends React.Component {
 	/*
 		MuiForm private methods
 	*/
-	userScrolledY = form => {
+	userScrolledY(form) {
 		/* 
 			on scroll, called from lifecycle methods
 		*/
