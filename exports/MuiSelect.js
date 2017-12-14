@@ -10,6 +10,19 @@ import { _get_property } from '../lib/functions';
 	inherited from MuiInput
 */
 class MuiSelect extends MuiInput {
+
+	constructor(props) {
+		super(props);
+		var { stateScope, validations, onChange } = this.props;
+
+		// this
+		this.state = {
+			invalid: false,
+			touched: false,
+			changed: false,
+		};
+	}
+	
 	render() {
 		// must decalare: onChange,validations,value,options to prevent them from going into {...input}
 		var { stateScope, onChange, validations, value, options, children, ...input } = this.props;

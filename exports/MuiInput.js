@@ -7,17 +7,6 @@ import { _get_property, _set_property } from '../lib/functions';
 	export: input
 */
 class MuiInput extends React.Component {
-	componentWillReceiveProps() {
-		var { stateScope, validations, name } = this.props;
-
-		// add this to parent form
-		if (validations) {
-			stateScope.muiFormElementsToValidate = Object.assign({
-				...stateScope.muiFormElementsToValidate,
-				[name]: this,
-			});
-		}
-	}
 
 	constructor(props) {
 		super(props);
@@ -29,6 +18,9 @@ class MuiInput extends React.Component {
 			touched: false,
 			changed: false,
 		};
+	}
+
+	componentWillReceiveProps() {
 
 		/*
 			initially, validate - but update form validity only, dont mess with this input until touched by session
@@ -238,8 +230,17 @@ class MuiInput extends React.Component {
 				// this.setState({invalid: errorMessage || false });
 			}
 		};
-	}
 
+		var { stateScope, validations, name } = this.props;
+
+		// add this to parent form
+		if (validations) {
+			stateScope.muiFormElementsToValidate = Object.assign({
+				...stateScope.muiFormElementsToValidate,
+				[name]: this,
+			});
+		}
+	}
 	// componentWillMount(){
 	// 	this.props.stateScope.setState({ muiFormSubmitAttempted: false });
 	// }
