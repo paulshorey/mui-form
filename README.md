@@ -37,7 +37,7 @@ Everything is customizable,
 
 
 
-
+#
 #
 # It is on NPM and Yarn!
 
@@ -196,6 +196,8 @@ validations={[validations.required]}
 }
 }
 ```
+
+
 
 
 # 
@@ -375,6 +377,7 @@ validations={[validations.required]}
 ```
 
 
+
 # 
 #
 # State Management:
@@ -439,6 +442,9 @@ You have access to all this. Child inputs and buttons also access it. All variab
 #### this.state.muiFormConnectionFailed
 
 #### this.state.muiFormInvalid
+
+
+
 
 
 # 
