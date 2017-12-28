@@ -75,7 +75,7 @@ Then in your javascript file import it. If you can use ES6, then `import { MuiFo
 
 > ```
 > class PageComponent extends React.Component {
-> state = {};
+>   state = {};
 > ```
 >
 > It must be defined as an object, in the constructor method of your component. It can be an empty object, and you can fill in the properties later. More details on next page - [normal usage](https://paulshorey.gitbooks.io/mui-form/content/normal-usage.html).
@@ -84,12 +84,12 @@ Then in your javascript file import it. If you can use ES6, then `import { MuiFo
 
 > ```
 > render(
-> var handleSubmit = (promise)=>{
-> // do things
-> }
-> <MuiForm stateScope={this} onSubmit={handleSubmit}>
-> {stuff}
-> </MuiForm>
+>   var handleSubmit = (promise)=>{
+>     // do things
+>    }
+>   <MuiForm stateScope={this} onSubmit={handleSubmit}>
+>     {stuff}
+>   </MuiForm>
 > )
 > ```
 >
@@ -101,21 +101,21 @@ Then in your javascript file import it. If you can use ES6, then `import { MuiFo
 
 > ```
 > <fieldset>
-> <label>
-> Customer info:
-> </label>
-> <MuiInput
-> stateScope={this}
-> name="customer_name"
-> type="text"
-> validations={[validations.required]}
-> />
-> <MuiInput
-> stateScope={this}
-> name="customer_email"
-> type="text"
-> validations={[validations.required, validations.email ]}
-> />
+>   <label>
+>     Customer info:
+>   </label>
+>   <MuiInput
+>     stateScope={this}
+>     name="customer_name"
+>     type="text"
+>     validations={[validations.required]}
+>   />
+>   <MuiInput
+>     stateScope={this}
+>     name="customer_email"
+>     type="text"
+>     validations={[validations.required, validations.email ]}
+>   />
 > </fieldset>
 > ```
 >
@@ -131,16 +131,16 @@ Then in your javascript file import it. If you can use ES6, then `import { MuiFo
 > ```
 > const handleSubmit = (valid)=>{
 >
-> valid.then(event => {
+>   valid.then(event => {
 >
-> // form is VALID
-> console.log('Submit form data: ',this.state.muiFormValues);
-> })
-> .catch(err => {
+>     // form is VALID
+>     console.log('Submit form data: ',this.state.muiFormValues);
+>   })
+>   .catch(err => {
 >
-> // form is NOT valid
-> console.error('Error form: ' + err);
-> });
+>   // form is NOT valid
+>   console.error('Error form: ' + err);
+>   });
 > };
 > ```
 >
@@ -222,15 +222,15 @@ validations={[validations.required]}
 
 > ```
 > class PageComponent extends React.Component {
-> state: {
-> muiFormValues: {
-> customer_name: 'Paul Shorey',
-> customer_email: 'ps@artspaces.net'
-> },
-> muiFormButtons: {
-> submit: 'Confirm changes',
-> reset: 'Abandon changes',
-> },
+>   state: {
+>     muiFormValues: {
+>     customer_name: 'Paul Shorey',
+>     customer_email: 'ps@artspaces.net'
+>   },
+>   muiFormButtons: {
+>     submit: 'Confirm changes',
+>     reset: 'Abandon changes',
+>   },
 > }
 > ```
 >
@@ -245,37 +245,34 @@ validations={[validations.required]}
 > ```
 > componentWillMount(){
 >
-> // REST API get and pre-fill form values:
-> fetch('http://someAPI.com/v1/customerData', {
-> method: 'post',
-> headers: {'Content-Type':'application/json'},
-> body: {
-> "id": this.props.customer.id
-> }
-> }).then((data)=>{
+>   // REST API get and pre-fill form values:
+>   fetch('http://someAPI.com/v1/customerData', {
+>     method: 'post',
+>     headers: {'Content-Type':'application/json'},
+>     body: {
+>       "id": this.props.customer.id
+>     }
+>   }).then((data)=>{
 >
-> // got the new form data - lets update our form with it:
-> this.setState({muiFormValues: Object.assign({...this.state.muiFormValues}, {...data})});
+>   // got the new form data - lets update our form with it:
+>   this.setState({muiFormValues: Object.assign({...this.state.muiFormValues}, {...data})});
 >
-> }).catch(function(err){
-> console.log('Error fetch:-S', err);
-> });
->
->
+>   }).catch(function(err){
+>     console.log('Error fetch:-S', err);
+>   });
 >
 > }
 >
 > render(
-> var handleSubmit = (promise)=>{
-> // get form data
-> promise.then(function(formData) {
-> // do stuff
-> // do stuff with formData
-> });
-> }
-> <MuiForm stateScope={this} onSubmit={handleSubmit}>
-> {stuff}
-> </MuiForm>
+>   var handleSubmit = (promise)=>{
+>     // get form data
+>     promise.then(function(formData) {
+>       // use formData
+>     });
+>   }
+>   <MuiForm stateScope={this} onSubmit={handleSubmit}>
+>     {stuff}
+>   </MuiForm>
 > )
 > ```
 >
@@ -287,45 +284,41 @@ validations={[validations.required]}
 
 > ```
 > <fieldset>
-> <label>
-> Customer info:
-> </label>
-> <MuiInput
-> stateScope={this}
-> name="customer_name"
-> type="text"
-> validations={[validations.required]}
-> />
-> <MuiInput
-> stateScope={this}
-> name="customer_email"
-> type="text"
-> validations={[validations.required, validations.email ]}
-> />
+>   <label>
+>     Customer info:
+>   </label>
+>   <MuiInput
+>     stateScope={this}
+>     name="customer_name"
+>     type="text"
+>     validations={[validations.required]}
+>   />
+>   <MuiInput
+>     stateScope={this}
+>     name="customer_email"
+>     type="text"
+>     validations={[validations.required, validations.email ]}
+>   />
 > </fieldset>
 > ```
->
-> ...
 
 #### 4\) Handle the form submission
 
 > ```
 > const handleSubmit = valid => {
 >
-> valid.then(event => {
+>   valid.then(event => {
 >
-> // form is VALID
-> console.log('Submit form data: ',this.state.muiFormValues);
-> })
-> .catch(err => {
+>   // form is VALID
+>     console.log('Submit form data: ',this.state.muiFormValues);
+>   })
+>   .catch(err => {
 >
-> // form is NOT valid
-> console.error('Error form: ' + err);
-> });
+>   // form is NOT valid
+>     console.error('Error form: ' + err);
+>   });
 > };
 > ```
->
-> ...
 
 ###
 
@@ -334,58 +327,58 @@ validations={[validations.required]}
 ```js
 class PageComponent extends React.Component {
 
-/*
-Step 1:
-* Define a state!
-* At least make it an empty object. You can fill in the properties later from a REST request.
-*/
-state = {};
+  /*
+  Step 1:
+  * Define a state!
+  * At least make it an empty object. You can fill in the properties later from a REST request.
+  */
+  state = {};
 
-render() {
-var handleSubmit = (promise)=>{
-/*
-Step 4:
-Do something after form submit attempted.
-promise will be rejected if form is invalid
-promise will resolve if all inputs are OK
-*/
-};
+  render() {
+    var handleSubmit = (promise)=>{
+      /*
+      Step 4:
+      Do something after form submit attempted.
+      promise will be rejected if form is invalid
+      promise will resolve if all inputs are OK
+      */
+    };
 
-return (
-<div>
+    return (
+      <div>
 
-{/*
-Step 3:
-* Add your form.
-* <MuiForm /> will become <form>
-* IMPORTANT - pass it the two attributes: stateScope and onSubmit
-* OPTIONAL - pass to it anything else you would pass to <form />, including a className
-*/}
-<MuiForm stateScope={this} onSubmit={handleSubmit}>
+        {/*
+        Step 3:
+        * Add your form.
+        * <MuiForm /> will become <form>
+        * IMPORTANT - pass it the two attributes: stateScope and onSubmit
+        * OPTIONAL - pass to it anything else you would pass to <form />, including a className
+        */}
+        <MuiForm stateScope={this} onSubmit={handleSubmit}>
 
-<fieldset>
-<label>
-Some field:
-</label>
+          <fieldset>
+            <label>
+              Some field:
+            </label>
 
-{/*
-Step 4:
-* Add any number of input components (or toggle or select or textbox)
-* Give it a name and validations
-* Don't forget to pass it the stateScope prop
-*/}
-<MuiInput
-stateScope={this}
-name="some_required_text_field"
-type="text"
-validations={[validations.required]}
-/>
-</fieldset>
+            {/*
+            Step 4:
+            * Add any number of input components (or toggle or select or textbox)
+            * Give it a name and validations
+            * Don't forget to pass it the stateScope prop
+            */}
+            <MuiInput
+              stateScope={this}
+              name="some_required_text_field"
+              type="text"
+              validations={[validations.required]}
+            />
+          </fieldset>
 
-</MuiForm>
-</div>
-);
-}
+        </MuiForm>
+      </div>
+    );
+  }
 }
 ```
 
