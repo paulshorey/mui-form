@@ -7,6 +7,9 @@ The following is an incomplete excerpt:
 
 
 
+
+
+
 # 
 # 
 # Mui-Form
@@ -26,7 +29,8 @@ is
 * the submit button submits the form
 * you set the submit handler function, and onSubmit, the library calls it with a promise - the promise will fail if the form is invalid, and proceed if validation is ok - then you can do your custom action and submit the data to your backend
 * also it manages the status of your form: "invalid", "error", "submitting", "submitAttempted", etc
-####  
+
+.
 
 Everything is customizable,
 
@@ -37,9 +41,11 @@ Everything is customizable,
 
 
 
-#
-#
-# It is on NPM and Yarn!
+
+# 
+# 
+# Installation: 
+## It's on NPM and Yarn!
 
 **Simply:**
 
@@ -55,10 +61,15 @@ import { MuiForm, MuiInput } from 'mui-form';
 
 
 
+
+
 # 
 # 
-# Basic Usage:
+# Basic Usage: 
 ## Four steps to use it in any React Component:
+
+First, of course, `npm install --save mui-form`,
+Then in your javascript file import it. If you can use ES6, then `import { MuiForm } from 'mui-form'`
 
 #### 1\) Define a state
 
@@ -67,7 +78,7 @@ import { MuiForm, MuiInput } from 'mui-form';
 > state = {};
 > ```
 >
-> It must be defined as an object, in the constructor method of your component. It can be an empty object, and you can fill in the properties later. More details on next page - [normal usage](/normal-usage.md).
+> It must be defined as an object, in the constructor method of your component. It can be an empty object, and you can fill in the properties later. More details on next page - [normal usage](https://paulshorey.gitbooks.io/mui-form/content/normal-usage.html).
 
 #### 2\) Define an onSubmit handler function and add the form component
 
@@ -83,8 +94,8 @@ import { MuiForm, MuiInput } from 'mui-form';
 > ```
 >
 > [**&lt;MuiForm /&gt;**](/asdf) will become &lt;form /&gt;
-> Requires - pass it the two attributes: [stateScope](/sdf) and [onSubmit](/dsffsa)
-> Optional - pass to it anything else you would pass to &lt;form /&gt;, including a [className](/adfs)
+> Requires - pass it the two attributes: [stateScope](https://paulshorey.gitbooks.io/mui-form/content/state-management.html) and onSubmit
+> Optional - pass to it anything else you would pass to &lt;form /&gt;, including a className
 
 #### 3\) Add some input components \(or toggle or select or textbox\)
 
@@ -108,7 +119,8 @@ import { MuiForm, MuiInput } from 'mui-form';
 > </fieldset>
 > ```
 >
-> [**&lt;MuiInput /&gt;**](/adf) will become &lt;input /&gt;, [&lt;MuiSelect /&gt;](/asdf) will become a &lt;select /&gt;, etc.
+
+> [&lt;MuiForm /&gt;](https://paulshorey.gitbooks.io/mui-form/content/muiform.html) will become &lt;input /&gt;, [&lt;MuiSelect /&gt;](https://paulshorey.gitbooks.io/mui-form/content/muiinput.html) will become a &lt;select /&gt;, etc.
 > Requires - pass it the two attributes: stateScope and onSubmit
 > Optional - pass to it anything else you would pass to &lt;input /&gt;, including a className or onFocus
 > The `name` will be the property/key in the form data store. So, this example will generate the form data:
@@ -200,12 +212,13 @@ validations={[validations.required]}
 
 
 
+
 # 
-#
+# 
 # Normal Usage:
 ## Four steps to using it in the real world:
 
-#### }1\) Define a state
+#### 1\) Define a state
 
 > ```
 > class PageComponent extends React.Component {
@@ -378,8 +391,11 @@ validations={[validations.required]}
 
 
 
+
+
+
 # 
-#
+# 
 # State Management:
 ## MuiForm works with your Component's local state:
 
@@ -442,6 +458,127 @@ You have access to all this. Child inputs and buttons also access it. All variab
 #### this.state.muiFormConnectionFailed
 
 #### this.state.muiFormInvalid
+
+
+
+
+
+
+
+#
+#  
+# Material UI
+
+This project uses Google's "Material UI" design specifications, which dictate how elements in a mobile-friendly app should be designed. They include specifications for colors, shapes, padding, drop shadows, and placement of elements on the responsive page.
+
+This project takes these guidelines relatively loosely. But stays true to them especially for the form elements. The text input, buttons, select element, and checkbox are styled properly. The checkbox is turned into the Material UI's "toggle" switch. So, there is no checkbox. It is [&lt;MuiToggle /&gt;](https://paulshorey.gitbooks.io/mui-form/content/muitoggle.html).
+
+As for the actual styles, this project uses [Styled-Components](https://www.styled-components.com/) library. It works just like SASS (SCSS), but is automatically name-spaced to make conflicts impossible. It also places SCSS syntax into Javascript. So, you can use any Javascript variables or logic inside the stylesheet.  
+# 
+
+
+
+
+
+
+# 
+# &lt;MuiForm /&gt; Component
+
+```
+import { MuiForm } from 'mui-form';
+```
+
+[Read about it in GitBook](https://paulshorey.gitbooks.io/mui-form/content/muiform.html)
+
+
+
+
+
+
+
+# 
+# &lt;MuiInput /&gt; Component
+
+```
+import { MuiInput } from 'mui-form';
+```
+
+[Read about it in GitBook](https://paulshorey.gitbooks.io/mui-form/content/muiinput.html)
+
+
+
+
+
+
+
+# 
+# &lt;MuiSelect /&gt; Component
+
+```
+import { MuiSelect } from 'mui-form';
+```
+
+[Read about it in GitBook](https://paulshorey.gitbooks.io/mui-form/content/muiselect.html)
+
+
+
+
+
+
+
+# 
+# &lt;MuiToggle /&gt; Component
+
+```
+import { MuiToggle } from 'mui-form';
+```
+
+[Read about it in GitBook](https://paulshorey.gitbooks.io/mui-form/content/muitoggle.html)
+
+
+
+
+
+
+
+# 
+# &lt;MuiButton /&gt; Component
+
+```
+import { MuiButton } from 'mui-form';
+```
+
+[Read about it in GitBook](https://paulshorey.gitbooks.io/mui-form/content/muibutton.html)
+
+
+
+
+
+
+
+# 
+# Stock Validations
+
+```
+import { validations } from 'mui-form';
+```
+
+[Read about it in GitBook](https://paulshorey.gitbooks.io/mui-form/content/validations.html)
+
+
+
+
+
+
+
+# 
+#
+# Advanced Usage:
+## Documentation is not finished
+
+Coming soon
+
+
 
 
 
