@@ -1,3 +1,5 @@
+import $ from 'jquery'; 
+
 /*eslint no-unused-vars: 2*/
 import React from 'react';
 import MuiButton from './MuiButton';
@@ -12,7 +14,7 @@ import * as Styled from './MuiFormStyled';
 // 	currentPath: {}, // window.location.pathname ... but more Reactive
 // 	nav: {}, // window.store.unchangedv ... passed from NavConnected component below
 // };
-class MuiForm extends React.Component {
+export class MuiForm extends React.Component {
 	/*
 		extend parent component by modifying its properties:
 		set up ${this.state} of parent element
@@ -94,7 +96,7 @@ class MuiForm extends React.Component {
 			// scroll to top
 			if (window.innerWidth <= 750) {
 				// mobile - scroll body
-				window.$('body').animate(
+				$('body').animate(
 					{
 						scrollTop: 0,
 					},
@@ -102,7 +104,7 @@ class MuiForm extends React.Component {
 				);
 			} else {
 				// desktop - scroll form
-				window.$(this.form).animate(
+				$(this.form).animate(
 					{
 						scrollTop: 0,
 					},
