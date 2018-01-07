@@ -1,6 +1,6 @@
 {
     "name": "mui-form",
-    "version": "1.1.12",
+    "version": "1.1.13",
     "description": "ReactJS / ES6 form library with 1) Material UI 2) automated validation and feedback 3) and state management, to show submit/reset/loading buttons automatically",
     "directories": {
         "example": "example",
@@ -18,10 +18,14 @@
     "homepage": "https://github.com/paulshorey/mui-form#readme",
     "keywords": [
         "react-component",
-        "react"
+        "react",
+        "material design",
+        "form library",
+        "form validation",
+        "styled-components"
     ],
     "scripts": {
-        "precommit": "lint-staged",
+        "precommit": "lint-staged, test",
         "prepublish": "babel --plugins transform-es2015-modules-umd src --ignore __tests__ --out-dir ./dist",
         "lint": "eslint ./src",
         "lintfix": "eslint ./src --fix",
@@ -37,19 +41,19 @@
         "babel-preset-react": "^6.5.0",
         "babel-preset-stage-2": "^6.5.0",
         "babel-runtime": "^6.6.1",
-        "chai": "^3.5.0",
+        "enzyme": "^3.3.0",
+        "enzyme-adapter-react-16": "^1.1.1",
+        "enzyme-to-json": "^3.3.0",
         "eslint": "^2.7.0",
         "eslint-plugin-babel": "^3.1.0",
         "eslint-plugin-react": "^4.2.3",
         "jsdom": "^8.1.0",
-        "mocha": "^2.4.5",
         "nodemon": "^1.9.1",
         "react": "^16.2.0",
         "react-addons-test-utils": "^15.0.0",
         "react-dom": "^16.2.0",
         "react-scripts": "latest",
-        "react-test-renderer": "^16.2.0",
-        "sinon": "^1.17.7"
+        "react-test-renderer": "^16.2.0"
     },
     "peerDependencies": {
         "react": "^16.2.0",

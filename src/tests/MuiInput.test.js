@@ -1,13 +1,12 @@
-import $ from 'jquery'; 
-import 'window/theme';
-
+// for rendering the component
 import React from 'react';
-import ReactDOM from 'react-dom';
-import renderer from 'react-test-renderer';
+import { MuiInput, MuiForm, validations } from './../index';
+// for testing
+import * as enzyme from 'enzyme';
+import toJson from 'enzyme-to-json';
+import Adapter from 'enzyme-adapter-react-16';
+enzyme.configure({ adapter: new Adapter() });
 
-import MuiInput from './../exports/MuiInput';
-import MuiForm from './../exports/MuiForm';
-import validations from './../exports/validations';
 
 
 /*
@@ -18,24 +17,19 @@ class TestComponent extends React.Component {
     render() {
         return (
             <MuiForm stateScope={this}>
-                <MuiInput name="propertyName" stateScope={this} validations={[validations.required]} />
+                <MuiInput name="propertyName" stateScope={this} validations={[validations.email]} />
             </MuiForm>
         );
     }
 }
-const rootDiv = document.createElement('b');
-rootDiv.setAttribute("id", "root");
-document.body.appendChild(rootDiv);
-ReactDOM.render(<TestComponent />,rootDiv);
-
+const enzymeComponent = enzyme.mount(<TestComponent />);
 
 
 /*
     check that it is rendered
 */
 it('renders a <input type="text"> element inside a ".MuiInput" div', () => {
-    const MuiInputDiv = document.querySelector('.MuiInput');
-    expect(MuiInputDiv.querySelector('input').type).toBe("text");
+    expect(!!enzymeComponent.find('.MuiInput input[type="text"]').instance()).toBe(true);
 });
 
 
@@ -43,12 +37,32 @@ it('renders a <input type="text"> element inside a ".MuiInput" div', () => {
 /*
     check that it works
 */
-it('performs validation', () => {
-    
+it('validation: fails if not valid', () => {
     // user action
-	document.querySelector('input').focus();
-    document.querySelector('input').blur();
-    // test that it is off and thus "invalid"
-    expect(document.querySelector('.MuiInput').classList.contains('invalid')).toBe(true);
-    
+    enzymeComponent.find('input[type="text"]').simulate('focus');
+    enzymeComponent.find('input[type="text"]').instance().value = "asdf";
+    enzymeComponent.find('input[type="text"]').simulate('change');
+    enzymeComponent.find('input[type="text"]').simulate('blur');
+    // test that it has className "invalid"
+    expect(enzymeComponent.find('.MuiInput').instance().classList.contains('invalid')).toBe(true);
 });
+it('validation: ok if valid', () => {
+    // user action
+    enzymeComponent.find('input[type="text"]').simulate('focus');
+    enzymeComponent.find('input[type="text"]').instance().value = "some@email.com";
+    enzymeComponent.find('input[type="text"]').simulate('change');
+    enzymeComponent.find('input[type="text"]').simulate('blur');
+    // test that has lost that "invalid" className
+    expect(enzymeComponent.find('.MuiInput').instance().classList.contains('invalid')).toBe(false); 
+});
+it('validation: ok if empty', () => {
+    // user action
+    enzymeComponent.find('input[type="text"]').simulate('focus');
+    enzymeComponent.find('input[type="text"]').instance().value = "";
+    enzymeComponent.find('input[type="text"]').simulate('change');
+    enzymeComponent.find('input[type="text"]').simulate('blur');
+    // test that does not again get the status "invalid"
+    // because there is no validations.required in the array passed to the validation prop -- so, it is not required to be filled in - but if it is, then it has to be the correct value
+    expect(enzymeComponent.find('.MuiInput').instance().classList.contains('invalid')).toBe(false);
+});
+

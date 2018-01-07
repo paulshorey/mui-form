@@ -1,10 +1,11 @@
-import 'window/theme';
-
+// for rendering the component
 import React from 'react';
-import ReactDOM from 'react-dom';
-import renderer from 'react-test-renderer';
-
-import { MuiButton } from './../exports/MuiButton';
+import { MuiButton } from './../index';
+// for testing
+import * as enzyme from 'enzyme';
+import toJson from 'enzyme-to-json';
+import Adapter from 'enzyme-adapter-react-16';
+enzyme.configure({ adapter: new Adapter() });
 
 
 /*
@@ -22,10 +23,7 @@ class TestComponent extends React.Component {
 		);
 	}
 }
-const rootDiv = document.createElement('b');
-rootDiv.setAttribute("id", "root");
-document.body.appendChild(rootDiv);
-ReactDOM.render(<TestComponent />,rootDiv);
+const enzymeComponent = enzyme.mount(<TestComponent />);
 
 
 
@@ -33,9 +31,8 @@ ReactDOM.render(<TestComponent />,rootDiv);
     check that it is rendered
 */
 it('renders a <button> element inside a ".MuiButton" div', () => {
-	// assuming our "render it" section above is not changed, and the regular type="button" button comes before the "submit" button...
-    const MuiButtonDiv = document.querySelector('button.MuiButton');
-    expect(MuiButtonDiv.type).toBe("button");
+	expect(!!enzymeComponent.find('button[type="button"].MuiButton').instance()).toBe(true);
+	expect(!!enzymeComponent.find('button[type="submit"].MuiButton').instance()).toBe(true);
 });
 
 
@@ -44,11 +41,15 @@ it('renders a <button> element inside a ".MuiButton" div', () => {
     check that it works
 */
 it('submits form if type="submit"', () => {
-	// type="button"
-	document.getElementById('buttonCancel').click();
+    // user action
+    enzymeComponent.find('button[type="button"]').instance().click();
+    // check that form failed to submit
 	expect(window.formSubmitted).toEqual(undefined);
-	// type="submit"
-	document.getElementById('buttonSubmit').click();
+});
+it('submits form if type="submit"', () => {
+    // user action
+    enzymeComponent.find('button[type="submit"]').instance().click();
+    // check that form was submitted
 	expect(window.formSubmitted).toEqual(true);
     
 });

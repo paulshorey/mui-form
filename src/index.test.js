@@ -1,8 +1,5 @@
 import 'window/theme';
-
 import React from 'react';
-import renderer from 'react-test-renderer';
-
 import { validations, MuiForm, MuiInput, MuiSelect, MuiToggle, MuiButton } from './index';
 
 it('exports primary components', () => {

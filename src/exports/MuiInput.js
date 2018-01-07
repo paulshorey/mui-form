@@ -1,4 +1,5 @@
 /*eslint no-unused-vars: 2*/
+import $ from 'jquery'; 
 import React from 'react';
 
 import { _get_property, _set_property } from '../functions';
@@ -141,25 +142,25 @@ class MuiInput extends React.Component {
 					// focus on this field
 					if (window.innerWidth <= 750) {
 						// mobile - scroll body
-						window.$('body').animate(
+						$('body').animate(
 							{
 								scrollTop:
-									window.$(event.target).offset().top - window.$(event.target.form).height() / 2,
+									$(event.target).offset().top - $(event.target.form).height() / 2,
 							},
 							1000
 						);
 					} else {
 						// desktop - scroll body to top to be consistent
-						window.$('body').animate(
+						$('body').animate(
 							{
 								scrollTop: 0,
 							},
 							1000
 						);
 						// desktop - scroll box
-						window.$(event.target.form).animate(
+						$(event.target.form).animate(
 							{
-								scrollTop: event.target.offsetTop - window.$(event.target.form).height() / 2,
+								scrollTop: event.target.offsetTop - $(event.target.form).height() / 2,
 							},
 							1000
 						);
@@ -245,12 +246,12 @@ class MuiInput extends React.Component {
 	// }
 
 	render() {
-		var { stateScope, onChange, validations, value, options, ...input } = this.props;
+		var { stateScope, onChange, validations, value, options, type, ...input } = this.props;
 
 		// ignore this >>>
 		// need to declare above: onChange, validations, value, options
 		// so they will not sometimes be part of the desctructured variable: ...input, also above
-		if (stateScope || onChange || validations || value || options) {
+		if (stateScope || onChange || validations || value || options || type) {
 			/* can't silence Webpack React no-unused-vars warning, but these values must always be declared */
 		}
 		// <<< ignore this
@@ -275,6 +276,7 @@ class MuiInput extends React.Component {
 			>
 				<input
 					{...input}
+					type={type||"text"}
 					value={formValue}
 					onChange={this.handleChange}
 					onBlur={this.handleValidate}

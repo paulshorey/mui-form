@@ -1,13 +1,14 @@
-import $ from 'jquery'; 
-import 'window/theme';
-
+/*
+    toggle (checkbox) is a difficult one - wasn't able to toggle (check, uncheck) it with enzyme
+    have to use classic Javascript, which works fine for a simple use case like this
+    so, this package requires react-test-renderer just for this page
+*/
 import React from 'react';
+import { MuiToggle, MuiForm, validations } from './../index';
+// for testing
 import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
 
-import MuiToggle from './../exports/MuiToggle';
-import MuiForm from './../exports/MuiForm';
-import validations from './../exports/validations';
 
 
 /*
@@ -34,8 +35,7 @@ ReactDOM.render(<TestComponent />,rootDiv);
     check that it is rendered
 */
 it('renders a <input type="checkbox"> element inside a ".MuiToggle" div', () => {
-    const MuiToggleDiv = document.querySelector('.MuiToggle');
-    expect(MuiToggleDiv.querySelector('input[type="checkbox"]').type).toBe("checkbox");
+    expect(document.querySelector('.MuiToggle input[type="checkbox"]').type).toBe("checkbox");
 });
 
 
@@ -57,3 +57,4 @@ it('performs validation', () => {
     expect(document.querySelector('.MuiToggle').classList.contains('invalid')).toBe(true);
     
 });
+
