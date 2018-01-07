@@ -34,8 +34,8 @@ ReactDOM.render(<TestComponent />,rootDiv);
 */
 it('renders a <button> element inside a ".MuiButton" div', () => {
 	// assuming our "render it" section above is not changed, and the regular type="button" button comes before the "submit" button...
-    const MuiButtonDiv = document.querySelector('.MuiButton');
-    expect(MuiButtonDiv.querySelector('button').type).toBe("button");
+    const MuiButtonDiv = document.querySelector('button.MuiButton');
+    expect(MuiButtonDiv.type).toBe("button");
 });
 
 
