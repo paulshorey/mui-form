@@ -52,13 +52,9 @@ class TestComponent extends React.Component {
 /*
     check that it is rendered
 */
-it('renders a <form class="MuiForm"> element', () => {
+it('has rendered a <button type="submit" /> inside <form class="MuiForm"> element', () => {
   const enzymeComponent = enzyme.mount(<TestComponent />);
-  expect(!!enzymeComponent.find("form.MuiForm").instance()).toBe(true);
-});
-it('renders a <form class="MuiForm"> element', () => {
-  const enzymeComponent = enzyme.mount(<TestComponent />);
-  expect(!!enzymeComponent.find('form button[type="submit"]').instance()).toBe(
+  expect(!!enzymeComponent.find('form.MuiForm button[type="submit"]').instance()).toBe(
     true
   );
 });

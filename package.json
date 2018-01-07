@@ -63,7 +63,8 @@
         "format": "prettier-eslint --write \"src/**/*.js\"",
         "lint": "eslint ./src",
         "lintfix": "eslint ./src --fix",
-        "test": "CI=true react-scripts test --env=jsdom"
+        "test": "CI=true react-scripts test --env=jsdom",
+        "testing": "react-scripts test --env=jsdom"
     },
     "pre-commit": [
         "format",
