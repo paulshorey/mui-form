@@ -65,8 +65,9 @@
     },
     "lint-staged": {
         "src/**/*.{js,jsx,json,css}": [
+            "eslint ./src --fix",
             "prettier --single-quote --trailing-comma es5 --print-width 100 --use-tabs --write",
-            "test",
+            "react-scripts test --env=jsdom",
             "git add"
         ]
     }
