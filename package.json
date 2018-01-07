@@ -25,7 +25,7 @@
         "styled-components"
     ],
     "scripts": {
-        "precommit": "lint-staged, test",
+        "precommit": "lint-staged",
         "prepublish": "babel --plugins transform-es2015-modules-umd src --ignore __tests__ --out-dir ./dist",
         "lint": "eslint ./src",
         "lintfix": "eslint ./src --fix",
@@ -66,6 +66,7 @@
     "lint-staged": {
         "src/**/*.{js,jsx,json,css}": [
             "prettier --single-quote --trailing-comma es5 --print-width 100 --use-tabs --write",
+            "test",
             "git add"
         ]
     }
