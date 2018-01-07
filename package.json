@@ -46,10 +46,10 @@
         "mocha": "^2.4.5",
         "nodemon": "^1.9.1",
         "react": "^16.2.0",
-        "react-scripts": "latest",
         "react-addons-test-utils": "^15.0.0",
         "react-dom": "^16.2.0",
-        "sinon": "^1.17.3"
+        "react-scripts": "latest",
+        "sinon": "^1.17.7"
     },
     "peerDependencies": {
         "react": "~0.14.8 || ^15.0.0",

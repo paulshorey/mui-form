@@ -11,7 +11,13 @@ import * as Styled from './MuiButtonStyled';
 export class MuiButton extends React.Component {
 	render() {
 		const { children, ...attributes } = this.props;
-		return <Styled.Button {...attributes}>{children}</Styled.Button>;
+		return (
+			<div className="MuiButton">
+				<Styled.Button {...attributes}>
+					{children}
+				</Styled.Button>
+			</div>
+		);
 	}
 }
 
