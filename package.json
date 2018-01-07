@@ -29,7 +29,7 @@
         "prepublish": "babel --plugins transform-es2015-modules-umd src --ignore __tests__ --out-dir ./dist",
         "lint": "eslint ./src",
         "lintfix": "eslint ./src --fix",
-        "test": "react-scripts test --env=jsdom"
+        "test": "CI=true react-scripts test --env=jsdom"
     },
     "devDependencies": {
         "babel-cli": "^6.6.4",
@@ -49,6 +49,7 @@
         "eslint-plugin-react": "^4.2.3",
         "jsdom": "^8.1.0",
         "nodemon": "^1.9.1",
+        "pre-commit": "^1.2.2",
         "react": "^16.2.0",
         "react-addons-test-utils": "^15.0.0",
         "react-dom": "^16.2.0",
@@ -63,11 +64,12 @@
         "jquery": "^3.2.1",
         "styled-components": "^2.1.2"
     },
+    "pre-commit": [
+      "test"
+    ],
     "lint-staged": {
         "src/**/*.{js,jsx,json,css}": [
-            "eslint ./src --fix",
             "prettier --single-quote --trailing-comma es5 --print-width 100 --use-tabs --write",
-            "react-scripts test --env=jsdom",
             "git add"
         ]
     }
