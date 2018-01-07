@@ -20,16 +20,12 @@
         "react-component",
         "react"
     ],
-    "options": {
-        "mocha": "--require scripts/mocha_runner src/**/__tests__/**/*.js"
-    },
     "scripts": {
+        "precommit": "lint-staged",
         "prepublish": "babel --plugins transform-es2015-modules-umd src --ignore __tests__ --out-dir ./dist",
         "lint": "eslint ./src",
         "lintfix": "eslint ./src --fix",
-        "testonly": "mocha $npm_package_options_mocha",
-        "test": "npm run lint && npm run testonly",
-        "test-watch": "npm run testonly -- --watch --watch-extensions js"
+        "test": "react-scripts test --env=jsdom"
     },
     "devDependencies": {
         "babel-cli": "^6.6.4",
@@ -41,17 +37,19 @@
         "babel-preset-react": "^6.5.0",
         "babel-preset-stage-2": "^6.5.0",
         "chai": "^3.5.0",
-        "enzyme": "^2.2.0",
+        "enzyme": "^2.9.1",
+        "enzyme-adapter-react-16": "^1.1.1",
         "eslint": "^2.7.0",
         "eslint-plugin-babel": "^3.1.0",
         "eslint-plugin-react": "^4.2.3",
         "jsdom": "^8.1.0",
         "mocha": "^2.4.5",
         "nodemon": "^1.9.1",
+        "react": "^16.2.0",
         "react-addons-test-utils": "^15.0.0",
-        "react": "^15.0.0",
-        "react-dom": "^15.0.0",
-        "sinon": "^1.17.3"
+        "react-dom": "^16.2.0",
+        "react-scripts": "latest",
+        "sinon": "^1.17.7"
     },
     "peerDependencies": {
         "react": "~0.14.8 || ^15.0.0",
@@ -59,7 +57,13 @@
     },
     "dependencies": {
         "babel-runtime": "^6.6.1",
-        "react": "^16.0.0",
+        "jQuery": "^1.7.4",
         "styled-components": "^2.1.2"
+    },
+    "lint-staged": {
+        "src/**/*.{js,jsx,json,css}": [
+            "prettier --single-quote --trailing-comma es5 --print-width 100 --use-tabs --write",
+            "git add"
+        ]
     }
 }
