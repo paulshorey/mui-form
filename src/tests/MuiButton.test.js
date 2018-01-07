@@ -12,10 +12,10 @@ enzyme.configure({ adapter: new Adapter() });
     render it
 */
 class TestComponent extends React.Component {
-	render() {
-		return (
+	                                        render() {
+		                                        return (
 			<form onSubmit={()=>{
-					window.formSubmitted = true;
+					                                        window.formSubmitted = true;
 				}}>
 				<MuiButton type="button" id="buttonCancel" />
 				<MuiButton type="submit" id="buttonSubmit" />
@@ -31,8 +31,8 @@ const enzymeComponent = enzyme.mount(<TestComponent />);
     check that it is rendered
 */
 it('renders a <button> element inside a ".MuiButton" div', () => {
-	expect(!!enzymeComponent.find('button[type="button"].MuiButton').instance()).toBe(true);
-	expect(!!enzymeComponent.find('button[type="submit"].MuiButton').instance()).toBe(true);
+	                                        expect(!!enzymeComponent.find('button[type="button"].MuiButton').instance()).toBe(true);
+	                                        expect(!!enzymeComponent.find('button[type="submit"].MuiButton').instance()).toBe(true);
 });
 
 
@@ -44,12 +44,12 @@ it('submits form if type="submit"', () => {
     // user action
     enzymeComponent.find('button[type="button"]').instance().click();
     // check that form failed to submit
-	expect(window.formSubmitted).toEqual(undefined);
+	                                        expect(window.formSubmitted).toEqual(undefined);
 });
 it('submits form if type="submit"', () => {
     // user action
     enzymeComponent.find('button[type="submit"]').instance().click();
     // check that form was submitted
-	expect(window.formSubmitted).toEqual(true);
+	                                        expect(window.formSubmitted).toEqual(true);
     
 });

@@ -20,8 +20,8 @@ export class MuiForm extends React.Component {
 		set up ${this.state} of parent element
 		prefix everything added to ${this} or ${this.state} with "muiForm"
 	*/
-	constructor(props) {
-		super(props);
+	                                        constructor(props) {
+		                                        super(props);
 
 		/*
 			stateScope
@@ -29,28 +29,28 @@ export class MuiForm extends React.Component {
 			remember, we can't refer to it as ${this} here because here, ${this} means MuiForm. So, we use ${stateScope}
 			to use this MuiForm and MuiInput components, must pass stateScope={this} to them
 		*/
-		var { stateScope } = this.props;
+		                                        var { stateScope } = this.props;
 
 		/*
 			state properties
 		*/
-		if (!stateScope.state) {
-			stateScope.state = {};
+		                                        if (!stateScope.state) {
+			                                        stateScope.state = {};
 		}
 
 		// state (documented - maybe added by the user before including MuiForm)
-		stateScope.state.muiFormValues =
+		                                        stateScope.state.muiFormValues =
 			stateScope.state.muiFormValues !== undefined ? stateScope.state.muiFormValues : {};
-		stateScope.state.muiFormButtons =
+		                                        stateScope.state.muiFormButtons =
 			stateScope.state.muiFormButtons !== undefined ? stateScope.state.muiFormButtons : {};
 
 		// state (secret - system use only)
-		stateScope.state.muiFormSubmitAttempted = false;
-		stateScope.state.muiFormSubmitting = false;
-		stateScope.state.muiFormChanged = false;
-		stateScope.state.muiFormConnectionFailed = false;
-		stateScope.state.muiFormInvalid = [];
-		stateScope.state.muiFormValuesOriginal = JSON.parse(
+		                                        stateScope.state.muiFormSubmitAttempted = false;
+		                                        stateScope.state.muiFormSubmitting = false;
+		                                        stateScope.state.muiFormChanged = false;
+		                                        stateScope.state.muiFormConnectionFailed = false;
+		                                        stateScope.state.muiFormInvalid = [];
+		                                        stateScope.state.muiFormValuesOriginal = JSON.parse(
 			JSON.stringify(stateScope.state.muiFormValues)
 		);
 
@@ -59,92 +59,92 @@ export class MuiForm extends React.Component {
 		*/
 
 		// elements which have validation attribute will be added to this list
-		stateScope.muiFormElementsToValidate = {};
+		                                        stateScope.muiFormElementsToValidate = {};
 
 		// validate
-		stateScope.muiFormValidate = clearValidations => {
-			var form = this.form;
-			var event = {};
-			var promise = new Promise((resolve, reject) => {
+		                                        stateScope.muiFormValidate = clearValidations => {
+			                                        var form = this.form;
+			                                        var event = {};
+			                                        var promise = new Promise((resolve, reject) => {
 				// run through each validated field and check it
-				for (let name in stateScope.muiFormElementsToValidate) {
-					event = {};
-					if (stateScope.muiFormElementsToValidate[name]) {
-						let comp = stateScope.muiFormElementsToValidate[name];
-						event = { target: form[name] };
-						if (event.target) {
-							var invalid = comp.handleValidate({
-								event,
-								value: stateScope.state.muiFormValues[name],
-								clearValidations,
+				                                        for (let name in stateScope.muiFormElementsToValidate) {
+					                                        event = {};
+					                                        if (stateScope.muiFormElementsToValidate[name]) {
+						                                        let comp = stateScope.muiFormElementsToValidate[name];
+						                                        event = { target: form[name] };
+						                                        if (event.target) {
+							                                        var invalid = comp.handleValidate({
+								                                        event,
+								                                        value: stateScope.state.muiFormValues[name],
+								                                        clearValidations,
 							});
-							if (invalid) {
-								reject(invalid);
+							                                        if (invalid) {
+								                                        reject(invalid);
 							}
 						}
 					}
 				}
 				// all ok
-				resolve(event, stateScope.state.muiFormValues);
+				                                        resolve(event, stateScope.state.muiFormValues);
 			});
-			return promise;
+			                                        return promise;
 		};
 
 		// reset
-		stateScope.muiFormReset = () => {
-			var { stateScope } = this.props;
+		                                        stateScope.muiFormReset = () => {
+			                                        var { stateScope } = this.props;
 			// scroll to top
-			if (window.innerWidth <= 750) {
+			                                        if (window.innerWidth <= 750) {
 				// mobile - scroll body
-				$('body').animate(
-					{
-						scrollTop: 0,
-					},
+				                                        $('body').animate(
+					                                        {
+						                                                                                scrollTop: 0,
+					                                        },
 					1000
 				);
 			} else {
 				// desktop - scroll form
-				$(this.form).animate(
-					{
-						scrollTop: 0,
-					},
+				                                        $(this.form).animate(
+					                                        {
+						                                                                                scrollTop: 0,
+					                                        },
 					1000
 				);
 			}
 			// run through each validated field and check it (pass true to reset it!)
-			stateScope.muiFormValidate(true);
+			                                        stateScope.muiFormValidate(true);
 			// finally, reset state values
-			stateScope.setState({
-				muiFormValues: JSON.parse(JSON.stringify(stateScope.state.muiFormValuesOriginal)),
-				muiFormTouched: false,
-				muiFormChanged: false,
-				muiFormSubmitting: false,
-				muiFormSubmitAttempted: false,
-				muiFormInvalid: [],
+			                                        stateScope.setState({
+				                                        muiFormValues: JSON.parse(JSON.stringify(stateScope.state.muiFormValuesOriginal)),
+				                                        muiFormTouched: false,
+				                                        muiFormChanged: false,
+				                                        muiFormSubmitting: false,
+				                                        muiFormSubmitAttempted: false,
+				                                        muiFormInvalid: [],
 			});
 		};
-		stateScope.muiFormReset();
+		                                        stateScope.muiFormReset();
 	}
 
 	/*
 		MuiForm private methods
 	*/
-	userScrolledY(form) {
+	                                        userScrolledY(form) {
 		/* 
 			on scroll, called from lifecycle methods
 		*/
-		if (form) {
+		                                        if (form) {
 			// container form is target
-			if (form.target) {
+			                                        if (form.target) {
 				// so we can pass to this the form or the parent object of the form
-				form = form.target;
+				                                        form = form.target;
 			}
 			// to show tip only when at the top...
 			// adjust (form.offsetHeight + N) as the tolerance - don't show custom scrollbar and arrow when almost at the end of form - session can figure that out themselves
-			if (form.scrollTop + form.offsetHeight + 30 > form.scrollHeight) {
-				form.classList.remove('scrollDown');
+			                                        if (form.scrollTop + form.offsetHeight + 30 > form.scrollHeight) {
+				                                        form.classList.remove('scrollDown');
 			} else {
-				form.classList.add('scrollDown');
+				                                        form.classList.add('scrollDown');
 			}
 		}
 	};
@@ -152,78 +152,78 @@ export class MuiForm extends React.Component {
 	/*
 		MuiForm lifecycle methods
 	*/
-	componentDidMount() {
+	                                        componentDidMount() {
 		/* 
 			on scroll 
 		*/
-		if (this.form) {
-			setTimeout(() => {
-				this.userScrolledY(this.form);
+		                                        if (this.form) {
+			                                        setTimeout(() => {
+				                                        this.userScrolledY(this.form);
 			}, 500);
-			this.form.addEventListener('scroll', this.userScrolledY);
+			                                        this.form.addEventListener('scroll', this.userScrolledY);
 		}
 	}
-	componentWillMount() {
-		this.props.stateScope._isMounted = true;
+	                                        componentWillMount() {
+		                                        this.props.stateScope._isMounted = true;
 	}
-	componentWillUnmount() {
-		this.props.stateScope._isMounted = false;
+	                                        componentWillUnmount() {
+		                                        this.props.stateScope._isMounted = false;
 		/* 
 			on scroll 
 		*/
-		if (this.form) {
-			this.form.removeEventListener('scroll', this.userScrolledY);
+		                                        if (this.form) {
+			                                        this.form.removeEventListener('scroll', this.userScrolledY);
 		}
 	}
 
-	componentDidUpdate() {
-		const { stateScope } = this.props;
-		stateScope.state.muiFormInvalid.forEach((inputName, index, all) => {
-			if (!this.form[inputName]) {
-				stateScope.state.muiFormInvalid.splice(index, 1);
+	                                        componentDidUpdate() {
+		                                        const { stateScope } = this.props;
+		                                        stateScope.state.muiFormInvalid.forEach((inputName, index, all) => {
+			                                        if (!this.form[inputName]) {
+				                                        stateScope.state.muiFormInvalid.splice(index, 1);
 			}
 		});
 	}
 
-	render() {
-		const { stateScope, onChange, onSubmit, children, className, ...input } = this.props;
+	                                        render() {
+		                                        const { stateScope, onChange, onSubmit, children, className, ...input } = this.props;
 
-		const onFormChange = function(event) {
-			if (onChange) {
-				onChange(event);
+		                                        const onFormChange = function(event) {
+			                                        if (onChange) {
+				                                        onChange(event);
 			}
 		};
 
-		const onFormSubmit = function(event) {
+		                                        const onFormSubmit = function(event) {
 			// ui
-			event.preventDefault();
-			stateScope.setState({
-				muiFormSubmitting: true,
-				muiFormSubmitAttempted: true,
-				muiFormSuccess: false,
-				muiFormError: false,
+			                                        event.preventDefault();
+			                                        stateScope.setState({
+				                                        muiFormSubmitting: true,
+				                                        muiFormSubmitAttempted: true,
+				                                        muiFormSuccess: false,
+				                                        muiFormError: false,
 			});
 
 			// validate each input - if fail, do not continue
-			const promise = stateScope.muiFormValidate();
+			                                        const promise = stateScope.muiFormValidate();
 
 			// return sucess or failed to callback
-			if (onSubmit) {
-				onSubmit(promise);
+			                                        if (onSubmit) {
+				                                        onSubmit(promise);
 			}
 		};
 
-		const PrimaryButton = (function() {
+		                                        const PrimaryButton = (function() {
 			/* = false means button is turned off */
-			if (stateScope.state.muiFormButtons !== false) {
-				if (
+			                                        if (stateScope.state.muiFormButtons !== false) {
+				                                        if (
 					/* submitting */
 					stateScope.state.muiFormButtons.submitting !== false &&
 					stateScope.state.muiFormSubmitting &&
 					stateScope.state.muiFormSubmitAttempted &&
 					!stateScope.state.muiFormInvalid.length
 				) {
-					return (
+					                                        return (
 						<MuiButton className={'transparent success'} type="button">
 							<b>Submitting...</b>
 						</MuiButton>
@@ -236,7 +236,7 @@ export class MuiForm extends React.Component {
 					stateScope.state.muiFormSubmitAttempted &&
 					stateScope.state.muiFormInvalid.length > 0
 				) {
-					return (
+					                                        return (
 						<MuiButton className={'transparent error small'} type="button">
 							<b>
 								{stateScope.state.muiFormButtons.invalid === undefined ||
@@ -254,7 +254,7 @@ export class MuiForm extends React.Component {
 					stateScope.state.muiFormError &&
 					stateScope.state.muiFormSubmitAttempted
 				) {
-					return (
+					                                        return (
 						<MuiButton className={'transparent error small'} type="button">
 							<b>
 								{stateScope.state.muiFormButtons.error === undefined ||
@@ -268,7 +268,7 @@ export class MuiForm extends React.Component {
 					/* submit */
 					stateScope.state.muiFormButtons.submit !== false
 				) {
-					return (
+					                                        return (
 						<MuiButton
 							className={
 								'' +
@@ -300,7 +300,7 @@ export class MuiForm extends React.Component {
 		})();
 
 		// console.log('MuiForm state', JSON.stringify(stateScope.state, null, ' '));
-		return (
+		                                        return (
 			<Styled.FormScrollbars className="MuiForm_customScrollbars">
 				<Styled.Form
 					{...input}
@@ -351,10 +351,10 @@ export class MuiForm extends React.Component {
 						className="clear scrollCue"
 						type="button"
 						innerRef={e => {
-							stateScope.e = e;
+							                                        stateScope.e = e;
 						}}
 						onClick={() => {
-							window
+							                                        window
 								.$(stateScope.e.form)
 								.animate({ scrollTop: stateScope.e.form.scrollHeight + 'px' }, 1000);
 						}}

@@ -17,7 +17,7 @@ enzyme.configure({ adapter: new Adapter() });
 */
 const spyFormSubmit = jest.fn();
 class TestComponent extends React.Component {
-    constructor(){
+    constructor() {
         super();
         this.state = {};
         // for testing, let's remember this component

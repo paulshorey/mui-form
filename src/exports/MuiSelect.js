@@ -10,14 +10,14 @@ import { _get_property } from '../functions';
 	inherited from MuiInput
 */
 class MuiSelect extends MuiInput {
-	render() {
+	                                        render() {
 		// must decalare: onChange,validations,value,options to prevent them from going into {...input}
-		var { stateScope, onChange, validations, value, options, children, ...input } = this.props;
+		                                        var { stateScope, onChange, validations, value, options, children, ...input } = this.props;
 		
 		// input value is non-standard in checkbox and select elements
-		const formValue = _get_property(stateScope.state.muiFormValues, input.name);
+		                                        const formValue = _get_property(stateScope.state.muiFormValues, input.name);
 
-		return (
+		                                        return (
 			<div
 				className={
 					'control MuiInput MuiSelect' +

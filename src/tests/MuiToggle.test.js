@@ -25,7 +25,7 @@ class TestComponent extends React.Component {
     }
 }
 const rootDiv = document.createElement('b');
-rootDiv.setAttribute("id", "root");
+rootDiv.setAttribute('id', 'root');
 document.body.appendChild(rootDiv);
 ReactDOM.render(<TestComponent />,rootDiv);
 
@@ -35,7 +35,7 @@ ReactDOM.render(<TestComponent />,rootDiv);
     check that it is rendered
 */
 it('renders a <input type="checkbox"> element inside a ".MuiToggle" div', () => {
-    expect(document.querySelector('.MuiToggle input[type="checkbox"]').type).toBe("checkbox");
+    expect(document.querySelector('.MuiToggle input[type="checkbox"]').type).toBe('checkbox');
 });
 
 
@@ -46,12 +46,12 @@ it('renders a <input type="checkbox"> element inside a ".MuiToggle" div', () => 
 it('performs validation', () => {
     
     // toggle on
-	document.querySelector('input[type="checkbox"]').focus();
-	document.querySelector('input[type="checkbox"]').click();
+	                                        document.querySelector('input[type="checkbox"]').focus();
+	                                        document.querySelector('input[type="checkbox"]').click();
     document.querySelector('input[type="checkbox"]').blur();
     // toggle off
-	document.querySelector('input[type="checkbox"]').focus();
-	document.querySelector('input[type="checkbox"]').click();
+	                                        document.querySelector('input[type="checkbox"]').focus();
+	                                        document.querySelector('input[type="checkbox"]').click();
     document.querySelector('input[type="checkbox"]').blur();
     // test that it is off and thus "invalid"
     expect(document.querySelector('.MuiToggle').classList.contains('invalid')).toBe(true);

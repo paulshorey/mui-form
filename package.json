@@ -24,13 +24,6 @@
         "form validation",
         "styled-components"
     ],
-    "scripts": {
-        "precommit": "lint-staged",
-        "prepublish": "babel --plugins transform-es2015-modules-umd src --ignore __tests__ --out-dir ./dist",
-        "lint": "eslint ./src",
-        "lintfix": "eslint ./src --fix",
-        "test": "CI=true react-scripts test --env=jsdom"
-    },
     "devDependencies": {
         "babel-cli": "^6.6.4",
         "babel-core": "^6.7.4",
@@ -50,6 +43,8 @@
         "jsdom": "^8.1.0",
         "nodemon": "^1.9.1",
         "pre-commit": "^1.2.2",
+        "prettier": "^1.9.2",
+        "prettier-eslint-cli": "^4.7.0",
         "react": "^16.2.0",
         "react-addons-test-utils": "^15.0.0",
         "react-dom": "^16.2.0",
@@ -64,8 +59,16 @@
         "jquery": "^3.2.1",
         "styled-components": "^2.1.2"
     },
+    "scripts": {
+        "prepublish": "babel --plugins transform-es2015-modules-umd src --ignore __tests__ --out-dir ./dist",
+        "format": "prettier-eslint --write \"src/**/*.js\"",
+        "lint": "eslint ./src",
+        "lintfix": "eslint ./src --fix",
+        "test": "CI=true react-scripts test --env=jsdom"
+    },
     "pre-commit": [
-      "test"
+        "format",
+        "test"
     ],
     "lint-staged": {
         "src/**/*.{js,jsx,json,css}": [

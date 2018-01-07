@@ -40,7 +40,7 @@ it('renders a <input type="text"> element inside a ".MuiInput" div', () => {
 it('validation: fails if not valid', () => {
     // user action
     enzymeComponent.find('input[type="text"]').simulate('focus');
-    enzymeComponent.find('input[type="text"]').instance().value = "asdf";
+    enzymeComponent.find('input[type="text"]').instance().value = 'asdf';
     enzymeComponent.find('input[type="text"]').simulate('change');
     enzymeComponent.find('input[type="text"]').simulate('blur');
     // test that it has className "invalid"
@@ -49,7 +49,7 @@ it('validation: fails if not valid', () => {
 it('validation: ok if valid', () => {
     // user action
     enzymeComponent.find('input[type="text"]').simulate('focus');
-    enzymeComponent.find('input[type="text"]').instance().value = "some@email.com";
+    enzymeComponent.find('input[type="text"]').instance().value = 'some@email.com';
     enzymeComponent.find('input[type="text"]').simulate('change');
     enzymeComponent.find('input[type="text"]').simulate('blur');
     // test that has lost that "invalid" className
@@ -58,7 +58,7 @@ it('validation: ok if valid', () => {
 it('validation: ok if empty', () => {
     // user action
     enzymeComponent.find('input[type="text"]').simulate('focus');
-    enzymeComponent.find('input[type="text"]').instance().value = "";
+    enzymeComponent.find('input[type="text"]').instance().value = '';
     enzymeComponent.find('input[type="text"]').simulate('change');
     enzymeComponent.find('input[type="text"]').simulate('blur');
     // test that does not again get the status "invalid"
