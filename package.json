@@ -43,7 +43,6 @@
         "jsdom": "^8.1.0",
         "nodemon": "^1.9.1",
         "pre-commit": "^1.2.2",
-        "prettier": "^1.9.2",
         "prettier-eslint-cli": "^4.7.0",
         "react": "^16.2.0",
         "react-addons-test-utils": "^15.0.0",
@@ -69,11 +68,5 @@
     "pre-commit": [
         "format",
         "test"
-    ],
-    "lint-staged": {
-        "src/**/*.{js,jsx,json,css}": [
-            "prettier --single-quote --trailing-comma es5 --print-width 100 --use-tabs --write",
-            "git add"
-        ]
-    }
+    ]
 }
