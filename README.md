@@ -1,9 +1,7 @@
 # 
 # GitBook
-**Please read in a better format, with navigation, at:**  
+Please click below to read this in a better format, with navigation:
 **https://paulshorey.gitbooks.io/mui-form/content/**  
-  
-The following is an incomplete excerpt:  
 
 
 
@@ -479,9 +477,8 @@ As for the actual styles, this project uses [Styled-Components](https://www.styl
 
 ```
 import { MuiForm } from 'mui-form';
-```
-
-[Read about it in GitBook](https://paulshorey.gitbooks.io/mui-form/content/muiform.html)
+````  
+coming soon...  
 
 
 
@@ -494,9 +491,8 @@ import { MuiForm } from 'mui-form';
 
 ```
 import { MuiInput } from 'mui-form';
-```
-
-[Read about it in GitBook](https://paulshorey.gitbooks.io/mui-form/content/muiinput.html)
+````  
+coming soon...  
 
 
 
@@ -509,9 +505,8 @@ import { MuiInput } from 'mui-form';
 
 ```
 import { MuiSelect } from 'mui-form';
-```
-
-[Read about it in GitBook](https://paulshorey.gitbooks.io/mui-form/content/muiselect.html)
+````  
+coming soon...  
 
 
 
@@ -524,9 +519,8 @@ import { MuiSelect } from 'mui-form';
 
 ```
 import { MuiToggle } from 'mui-form';
-```
-
-[Read about it in GitBook](https://paulshorey.gitbooks.io/mui-form/content/muitoggle.html)
+````  
+coming soon...  
 
 
 
@@ -539,10 +533,8 @@ import { MuiToggle } from 'mui-form';
 
 ```
 import { MuiButton } from 'mui-form';
-```
-
-[Read about it in GitBook](https://paulshorey.gitbooks.io/mui-form/content/muibutton.html)
-
+````  
+coming soon...  
 
 
 
@@ -554,9 +546,8 @@ import { MuiButton } from 'mui-form';
 
 ```
 import { validations } from 'mui-form';
-```
-
-[Read about it in GitBook](https://paulshorey.gitbooks.io/mui-form/content/validations.html)
+```  
+coming soon...  
 
 
 
@@ -579,8 +570,5 @@ Coming soon
 
 # 
 # 
-# Etc...
-## Read more at GitBook.com:
+# Read more at GitBook.com:
 **https://paulshorey.gitbooks.io/mui-form/content/**  
-  
-**This README is only an incomplete excerpt.** 
