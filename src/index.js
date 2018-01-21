@@ -1,4 +1,4 @@
-import "window/theme";
+import "./window/theme";
 
 // continue as normal...
 import validations from "./exports/validations";
