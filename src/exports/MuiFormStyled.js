@@ -1,3 +1,4 @@
+import cssTheme from "./../cssTheme";
 import styled from "styled-components";
 
 export const FormScrollbars = styled.div`
@@ -25,7 +26,7 @@ export const Form = styled.form`
   }
 
   .MuiInput input:focus {
-    border-color: ${window.theme.colorGreen1};
+    border-color: ${cssTheme.colorGreen1};
   }
   sup {
     font-weight: normal;
@@ -86,7 +87,7 @@ export const Form = styled.form`
       padding-right: 0;
     }
     &.withHr {
-      border-top: solid 1px ${window.theme.colorOnLight3};
+      border-top: solid 1px ${cssTheme.colorOnLight3};
       margin-top: 0.5rem;
       padding-top: 1.5rem;
     }
@@ -206,7 +207,7 @@ export const Form = styled.form`
 
   .invalid {
     input {
-      border-color: ${window.theme.colorWarn1} !important;
+      border-color: ${cssTheme.colorWarn1} !important;
     }
   }
 
@@ -265,7 +266,7 @@ export const Form = styled.form`
         height: 0;
       }
       input[type="checkbox"]:checked + .lever {
-        background-color: ${window.theme.colorGreen3};
+        background-color: ${cssTheme.colorGreen3};
       }
       .labelOff {
         padding: 0 7px 0 0;
@@ -307,7 +308,7 @@ export const Form = styled.form`
         left: 24px;
       }
       input[type="checkbox"]:checked + .lever:after {
-        background-color: ${window.theme.colorGreen1};
+        background-color: ${cssTheme.colorGreen1};
       }
       input[type="checkbox"]:disabled {
         cursor: not-allowed;
@@ -330,7 +331,7 @@ export const Form = styled.form`
     padding: 0.5rem 0 1.25rem;
     font-size: 1.5rem;
     font-weight: bold;
-    color: ${window.theme.colorGreen1};
+    color: ${cssTheme.colorGreen1};
     .fontIcon {
       position: relative;
       top: -0.33rem;
@@ -354,7 +355,7 @@ export const Form = styled.form`
     border: none;
     outline: none;
     text-overflow: ellipsis;
-    font-family: ${window.theme.fontFamily};
+    font-family: ${cssTheme.fontFamily};
     border-radius: 0;
     &:focus {
       outline: none;
@@ -403,7 +404,7 @@ export const Form = styled.form`
     background-clip: padding-box;
     background-color: rgba(255, 255, 255, 0);
     border: 0;
-    border-bottom: 1px solid ${window.theme.colorNeutral};
+    border-bottom: 1px solid ${cssTheme.colorNeutral};
     border-radius: 0;
     box-shadow: none;
     color: inherit;
@@ -439,7 +440,7 @@ export const Form = styled.form`
     font-weight: bold;
   }
   .invalid select {
-    border-color: ${window.theme.colorWarn1};
+    border-color: ${cssTheme.colorWarn1};
   }
 
   .MuiSelect {
@@ -450,26 +451,26 @@ export const Form = styled.form`
 
   .MuiInput {
     input {
-      border-bottom: 1px solid ${window.theme.colorNeutral};
+      border-bottom: 1px solid ${cssTheme.colorNeutral};
       padding: 0.5rem 0 0.33rem 0;
       width: 15rem;
       max-width: calc(100% - 1rem);
       margin: 0.25rem 0;
-      color: ${window.theme.colorOnLight1};
+      color: ${cssTheme.colorOnLight1};
       &::-webkit-input-placeholder {
-        color: ${window.theme.colorOnLight3};
+        color: ${cssTheme.colorOnLight3};
         line-height: 133%; // safari bug - can't inherit placeholder line-height
         font-size: 1.4rem;
         vertical-align: baseline;
       }
       &::-moz-placeholder {
-        color: ${window.theme.colorOnLight3};
+        color: ${cssTheme.colorOnLight3};
         line-height: 133%; // safari bug - can't inherit placeholder line-height
         font-size: 1.4rem;
         vertical-align: baseline;
       }
       &::-ms-input-placeholder {
-        color: ${window.theme.colorOnLight3};
+        color: ${cssTheme.colorOnLight3};
         line-height: 133%; // safari bug - can't inherit placeholder line-height
         font-size: 1.4rem;
         vertical-align: baseline;

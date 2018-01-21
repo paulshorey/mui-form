@@ -1,3 +1,4 @@
+import cssTheme from "./../cssTheme";
 import styled from "styled-components";
 
 export const Button = styled.button`
@@ -12,7 +13,7 @@ export const Button = styled.button`
   border: none;
   outline: none;
   text-overflow: ellipsis;
-  font-family: ${window.theme.fontFamily};
+  font-family: ${cssTheme.fontFamily};
   border-radius: 0;
   &:focus {
     outline: none;
@@ -52,7 +53,7 @@ export const Button = styled.button`
   font-weight: 500;
   margin: 0.6rem 1rem 1rem 0;
   border-radius: 2px;
-  background: ${window.theme.colorNeutral};
+  background: ${cssTheme.colorNeutral};
   > * {
     border-radius: 2px;
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.15);
@@ -109,20 +110,20 @@ export const Button = styled.button`
     }
   }
   &.primary {
-    background: ${window.theme.colorGreen1};
+    background: ${cssTheme.colorGreen1};
     color: #ffffff;
   }
   &.error {
-    background: ${window.theme.colorWarn2};
-    color: ${window.theme.colorOnDark1};
+    background: ${cssTheme.colorWarn2};
+    color: ${cssTheme.colorOnDark1};
   }
   &.warn {
-    background: ${window.theme.colorOrange2};
-    color: ${window.theme.colorOnDark1};
+    background: ${cssTheme.colorOrange2};
+    color: ${cssTheme.colorOnDark1};
   }
   &.delete {
-    background: ${window.theme.colorWarn3};
-    color: ${window.theme.colorOnDark1};
+    background: ${cssTheme.colorWarn3};
+    color: ${cssTheme.colorOnDark1};
   }
   &.small {
     font-size: 80%;
@@ -133,38 +134,38 @@ export const Button = styled.button`
     border: none;
     box-shadow: 0 0 0 1px transparent;
     text-shadow: #fff;
-    color: ${window.theme.colorOnLight2};
+    color: ${cssTheme.colorOnLight2};
     > * {
       background: rgba(255, 255, 255, 0);
       border: none;
       box-shadow: none;
     }
     &.na {
-      color: ${window.theme.colorGreen1};
+      color: ${cssTheme.colorGreen1};
     }
     &.success {
-      color: ${window.theme.colorGreen1};
+      color: ${cssTheme.colorGreen1};
       font-weight: bold;
       * {
         font-weight: bold;
       }
     }
     &.error {
-      color: ${window.theme.colorWarn1};
+      color: ${cssTheme.colorWarn1};
       font-weight: bold;
       * {
         font-weight: bold;
       }
     }
     &.invalid {
-      color: ${window.theme.colorWarn1};
+      color: ${cssTheme.colorWarn1};
     }
     * {
       font-weight: normal;
     }
   }
   &[disabled] {
-    background: ${window.theme.colorOnLight3};
+    background: ${cssTheme.colorOnLight3};
     &.loading {
       overflow: hidden;
       &:after {

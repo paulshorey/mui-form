@@ -1,5 +1,3 @@
-import "./window/theme";
-
 // continue as normal...
 import validations from "./exports/validations";
 import MuiForm from "./exports/MuiForm";
