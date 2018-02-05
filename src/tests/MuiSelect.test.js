@@ -35,35 +35,38 @@ const enzymeComponent = enzyme.mount(<TestComponent />);
 /*
     check that it is rendered
 */
-it('renders a <select/> element inside a ".MuiSelect" div', () => {
-  expect(!!enzymeComponent.find(".MuiSelect select").instance()).toBe(true);
+describe('it renders', () => {
+  it('renders a <select/> element inside a ".MuiSelect" div', () => {
+    expect(!!enzymeComponent.find(".MuiSelect select").instance()).toBe(true);
+  });
 });
-
 /*
     check that it works
 */
-it("validation: fails if not valid", () => {
-  // user action
-  enzymeComponent.find("select").simulate("focus");
-  enzymeComponent.find("select").simulate("blur");
-  // test that it has className "invalid"
-  expect(
-    enzymeComponent
-      .find(".MuiInput")
-      .instance()
-      .classList.contains("invalid")
-  ).toBe(true);
-});
-it("validation: succeeds if valid", () => {
-  // user action
-  enzymeComponent.find("select").simulate("focus");
-  enzymeComponent.find("select").instance().value = "something";
-  enzymeComponent.find("select").simulate("blur");
-  // test that it lost that "invalid"
-  expect(
-    enzymeComponent
-      .find(".MuiInput")
-      .instance()
-      .classList.contains("invalid")
-  ).toBe(false);
+describe('basic form functionality works', () => {
+  it("validation: fails if not valid", () => {
+    // user action
+    enzymeComponent.find("select").simulate("focus");
+    enzymeComponent.find("select").simulate("blur");
+    // test that it has className "invalid"
+    expect(
+      enzymeComponent
+        .find(".MuiInput")
+        .instance()
+        .classList.contains("invalid")
+    ).toBe(true);
+  });
+  it("validation: succeeds if valid", () => {
+    // user action
+    enzymeComponent.find("select").simulate("focus");
+    enzymeComponent.find("select").instance().value = "something";
+    enzymeComponent.find("select").simulate("blur");
+    // test that it lost that "invalid"
+    expect(
+      enzymeComponent
+        .find(".MuiInput")
+        .instance()
+        .classList.contains("invalid")
+    ).toBe(false);
+  });
 });

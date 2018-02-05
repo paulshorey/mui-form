@@ -52,50 +52,54 @@ class TestComponent extends React.Component {
 /*
     check that it is rendered
 */
-it('has rendered a <button type="submit" /> inside <form class="MuiForm"> element', () => {
-  const enzymeComponent = enzyme.mount(<TestComponent />);
-  expect(
-    !!enzymeComponent.find('form.MuiForm button[type="submit"]').instance()
-  ).toBe(true);
+describe('it renders', () => {
+  it('has rendered a <button type="submit" /> inside <form class="MuiForm"> element', () => {
+    const enzymeComponent = enzyme.mount(<TestComponent />);
+    expect(
+      !!enzymeComponent.find('form.MuiForm button[type="submit"]').instance()
+    ).toBe(true);
+  });
 });
 
 /*
     check that it works
 */
-it("does NOT submit if nothing changed", () => {
-  const enzymeComponent = enzyme.mount(<TestComponent />);
-  enzymeComponent
-    .find('button[type="submit"]')
-    .instance()
-    .click();
-  expect(spyFormSubmit).not.toHaveBeenCalled();
-});
-it("does NOT submit if an <input /> changed and invalid", () => {
-  const enzymeComponent = enzyme.mount(<TestComponent />);
-  enzymeComponent.find('input[type="text"]').simulate("focus");
-  enzymeComponent.find('input[type="text"]').instance().value = "notValidEmail";
-  enzymeComponent.find('input[type="text"]').simulate("change");
-  enzymeComponent.find('input[type="text"]').simulate("blur");
-  enzymeComponent
-    .find('button[type="submit"]')
-    .instance()
-    .click();
-  expect(spyFormSubmit).not.toHaveBeenCalled();
-});
-it("does submit if an <input /> changed and valid", () => {
-  const enzymeComponent = enzyme.mount(<TestComponent />);
-  enzymeComponent.find("form").simulate("change");
-  enzymeComponent.find('input[type="text"]').simulate("focus");
-  enzymeComponent.find('input[type="text"]').instance().value = "me@myself.com";
-  enzymeComponent.find('input[type="text"]').simulate("change");
-  enzymeComponent.find('input[type="text"]').simulate("blur");
-  enzymeComponent
-    .find('button[type="submit"]')
-    .instance()
-    .click();
-  // console.log(enzymeComponent.find('button[type="submit"]').instance().outerHTML);
-  // console.log(enzymeComponent.find('.MuiInput').instance().outerHTML);
-  // console.log(enzymeComponent.find('form').instance().outerHTML);
-  // console.log(enzymeComponent.state());
-  expect(spyFormSubmit).toHaveBeenCalledTimes(1);
+describe('basic form functionality works', () => {
+  it("does NOT submit if nothing changed", () => {
+    const enzymeComponent = enzyme.mount(<TestComponent />);
+    enzymeComponent
+      .find('button[type="submit"]')
+      .instance()
+      .click();
+    expect(spyFormSubmit).not.toHaveBeenCalled();
+  });
+  it("does NOT submit if an <input /> changed and invalid", () => {
+    const enzymeComponent = enzyme.mount(<TestComponent />);
+    enzymeComponent.find('input[type="text"]').simulate("focus");
+    enzymeComponent.find('input[type="text"]').instance().value = "notValidEmail";
+    enzymeComponent.find('input[type="text"]').simulate("change");
+    enzymeComponent.find('input[type="text"]').simulate("blur");
+    enzymeComponent
+      .find('button[type="submit"]')
+      .instance()
+      .click();
+    expect(spyFormSubmit).not.toHaveBeenCalled();
+  });
+  it("does submit if an <input /> changed and valid", () => {
+    const enzymeComponent = enzyme.mount(<TestComponent />);
+    enzymeComponent.find("form").simulate("change");
+    enzymeComponent.find('input[type="text"]').simulate("focus");
+    enzymeComponent.find('input[type="text"]').instance().value = "me@myself.com";
+    enzymeComponent.find('input[type="text"]').simulate("change");
+    enzymeComponent.find('input[type="text"]').simulate("blur");
+    enzymeComponent
+      .find('button[type="submit"]')
+      .instance()
+      .click();
+    // console.log(enzymeComponent.find('button[type="submit"]').instance().outerHTML);
+    // console.log(enzymeComponent.find('.MuiInput').instance().outerHTML);
+    // console.log(enzymeComponent.find('form').instance().outerHTML);
+    // console.log(enzymeComponent.state());
+    expect(spyFormSubmit).toHaveBeenCalledTimes(1);
+  });
 });
