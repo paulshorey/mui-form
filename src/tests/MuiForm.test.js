@@ -52,7 +52,7 @@ class TestComponent extends React.Component {
 /*
     check that it is rendered
 */
-describe('it renders', () => {
+describe("it renders", () => {
   it('has rendered a <button type="submit" /> inside <form class="MuiForm"> element', () => {
     const enzymeComponent = enzyme.mount(<TestComponent />);
     expect(
@@ -64,7 +64,7 @@ describe('it renders', () => {
 /*
     check that it works
 */
-describe('basic form functionality works', () => {
+describe("basic form functionality works", () => {
   it("does NOT submit if nothing changed", () => {
     const enzymeComponent = enzyme.mount(<TestComponent />);
     enzymeComponent
@@ -76,7 +76,8 @@ describe('basic form functionality works', () => {
   it("does NOT submit if an <input /> changed and invalid", () => {
     const enzymeComponent = enzyme.mount(<TestComponent />);
     enzymeComponent.find('input[type="text"]').simulate("focus");
-    enzymeComponent.find('input[type="text"]').instance().value = "notValidEmail";
+    enzymeComponent.find('input[type="text"]').instance().value =
+      "notValidEmail";
     enzymeComponent.find('input[type="text"]').simulate("change");
     enzymeComponent.find('input[type="text"]').simulate("blur");
     enzymeComponent
@@ -89,7 +90,8 @@ describe('basic form functionality works', () => {
     const enzymeComponent = enzyme.mount(<TestComponent />);
     enzymeComponent.find("form").simulate("change");
     enzymeComponent.find('input[type="text"]').simulate("focus");
-    enzymeComponent.find('input[type="text"]').instance().value = "me@myself.com";
+    enzymeComponent.find('input[type="text"]').instance().value =
+      "me@myself.com";
     enzymeComponent.find('input[type="text"]').simulate("change");
     enzymeComponent.find('input[type="text"]').simulate("blur");
     enzymeComponent

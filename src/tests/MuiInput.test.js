@@ -29,7 +29,7 @@ const enzymeComponent = enzyme.mount(<TestComponent />);
 /*
     check that it is rendered
 */
-describe('it renders', () => {
+describe("it renders", () => {
   it('renders a <input type="text"> element inside a ".MuiInput" div', () => {
     expect(
       !!enzymeComponent.find('.MuiInput input[type="text"]').instance()
@@ -40,7 +40,7 @@ describe('it renders', () => {
 /*
     check that it works
 */
-describe('basic form functionality works', () => {
+describe("basic form functionality works", () => {
   it("validation: fails if not valid", () => {
     // user action
     enzymeComponent.find('input[type="text"]').simulate("focus");

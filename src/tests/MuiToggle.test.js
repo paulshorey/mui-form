@@ -34,18 +34,18 @@ ReactDOM.render(<TestComponent />, rootDiv);
 /*
     check that it is rendered
 */
-describe('it renders', () => {
+describe("it renders", () => {
   it('renders a <input type="checkbox"> element inside a ".MuiToggle" div', () => {
-    expect(document.querySelector('.MuiToggle input[type="checkbox"]').type).toBe(
-      "checkbox"
-    );
+    expect(
+      document.querySelector('.MuiToggle input[type="checkbox"]').type
+    ).toBe("checkbox");
   });
 });
 
 /*
     check that it works
 */
-describe('basic form functionality works', () => {
+describe("basic form functionality works", () => {
   it("performs validation", () => {
     // toggle on
     document.querySelector('input[type="checkbox"]').focus();

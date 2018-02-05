@@ -35,7 +35,7 @@ const enzymeComponent = enzyme.mount(<TestComponent />);
 /*
     check that it is rendered
 */
-describe('it renders', () => {
+describe("it renders", () => {
   it('renders a <select/> element inside a ".MuiSelect" div', () => {
     expect(!!enzymeComponent.find(".MuiSelect select").instance()).toBe(true);
   });
@@ -43,7 +43,7 @@ describe('it renders', () => {
 /*
     check that it works
 */
-describe('basic form functionality works', () => {
+describe("basic form functionality works", () => {
   it("validation: fails if not valid", () => {
     // user action
     enzymeComponent.find("select").simulate("focus");
