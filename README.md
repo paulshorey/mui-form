@@ -1,6 +1,6 @@
 # 
 # GitBook
-Please click below to read this in a better format, with navigation:
+Please click below to read this with better code formatting, with navigation:  
 **https://paulshorey.gitbooks.io/mui-form/content/**  
 
 
